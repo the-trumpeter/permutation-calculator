@@ -1,16 +1,38 @@
 //
-//  3*3puzzle_swift.swift
+//  permutationsCalc.swift
 //  
 //
-//  Created by Gill Palmer on 11/4/2025.
+//  Created by Gill (@the-trumpeter) on 11/4/2025.
 //
 
-//
-//  Repeating: x^y
-//  Non-repeating: y!/(y-x)!
-//  multi-factor calculation: C(x,y) * C(z,y) * C(w,y) - and so on
-//  y=characters; x=spaces; z,w,etc.=factors; C(x,y) = number of combinations for two nums, characters and spaces - repeats irrelevant
-//
+//  Note: 'combination' and 'permutation' are pretty much treated the same, FYI
+
+/*
+-> The formula:
+    'y' = characters - Int;
+    'x' = spaces - Int;
+    'z', 'w', etc. = factors of 'x', for example rotation. A combination of combinations! - Int(s);
+    'C(x,y)' = number of combinations for two integers, characters and spaces - repeats irrelevant
+
+-> The actual formulas:
+    if 'x' can be repeated e.g,x=5: 'x^y'
+    ╰─> each number can be used more than once in the combination - say if y=3, then '225', '363' are all possible.
+
+    if 'x canNOT repeat: x!/(x-y)!
+
+    say 'x' is a combination itself: C(x,y) * C(z,y) * C(w,y) - and so on for each value under x
+    ╰─> see 'z' & 'w' above - We're now calculating a combination of combinations: Let's arrange 5 squares - that's 'x'. As well as combination of 'x', each of 'x' - those squares - could also be rotated up to 4 times - 'z'! So 'x in itself is a combination!
+
+i hope you understand what I mean
+see the 'about' panel for info: Menu bar > swift-frontend > About Script
+
+the 'Spaces' input is equivalent to 'y' above
+same with 'Inputs' = 'x'
+'Factor 1' & 'Factor 2' = 'z' & 'w'
+
+There you go.
+
+*/
 
 import Cocoa
 import SwiftUI
@@ -353,7 +375,7 @@ class AppDelegate: NSObject {
     @objc func showAboutPanel() {
         NSApp.orderFrontStandardAboutPanel(
             options: [
-                .applicationName: "Combination Calculator",
+                .applicationName: "Permutation Calculator",
                 .applicationVersion: "Version 1",
                 .credits: NSAttributedString(string: "Made by Gill Palmer, 2025.\nExample usage:\nSay you've got nine different squares.\nHow many different ways could they be ordered?\nCan each square be used more than once?\nWhat if each square could be rotated?",
                                              attributes: [
@@ -403,7 +425,7 @@ appMenu.addItem(aboutItem)
 
 appMenu.addItem(NSMenuItem.separator())
 appMenu.addItem(
-    withTitle: "Quit Combination Calculator",
+    withTitle: "Quit Permutation Calculator",
     action: #selector(NSApplication.terminate(_:)),
     keyEquivalent: "q"
 )
@@ -413,7 +435,7 @@ app.mainMenu = mainMenu
 
 //MARK: Final Setup & Launch
 window.center()
-window.title = "Combination Calculator"
+window.title = "Permutation Calculator"
 window.contentView = NSHostingView(rootView: homeView())
 window.makeKeyAndOrderFront(nil)
 
