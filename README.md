@@ -48,3 +48,6 @@ same with `Inputs` = `x`
 
 There you go.
 
+> [!NOTE]
+> ChatGPT helped a little bit.\
+> Though, only a little, mind! I did actually do a lot of it!!!
