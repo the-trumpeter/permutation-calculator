@@ -51,3 +51,5 @@ There you go.
 > [!NOTE]
 > ChatGPT helped a little bit.\
 > Though, only a little, mind! I did actually do a lot of it!!!
+> Aaand, I actually took in and tried to understand what was happening.\
+> Happy? OK, fine, keep saying I got the AI to do it... Some people you'll just never get through to...
