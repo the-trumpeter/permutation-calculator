@@ -12,10 +12,15 @@ this uses `cocoa`, if anybody cares.
 (this is also written in the script)
 
 ### (quick variable definition):
-  - **`y`** = characters
-  - **`x`** = spaces
+  - **`y`** = amount of different options to sort/input
+  - **`x`** = amount of spaces to put inputs `y` in
   - **`z`, `w`**, etc. = factors of `x`; rotation, for example. A combination of combinations!
   - **`C(x,y)`** = representative of the combinations between characters and spaces, with repeats unspecified.
+
+|
+  - **`!` - Don't be caught out:** `!` & `?` are actually mathematical operators, although less commonly used.
+    - [`!` means **'factorial'**](https://en.wikipedia.org/wiki/Factorial) - in `n!`, we multiply `n` by every **positive, non-decimal-point number below it** (factors, multiply factors, factorial \- get it?) So `5! = 5×4×3×2×1 = 120`. (There are a couple rules to this: One, `0!` always equals `1`; it might seem weird but it's to make these kind of permutation calculations easier. Two, we don't multiply by `0` as well: `3!` does NOT equal `3×2×1×0 = 0`, for obvious reasons.)
+    - [`?` means **'termial'**](https://en.wikipedia.org/wiki/Termial) - It's not used here but I'll touch on it anyway: I actually had to go ask about this, and learned that 'termial' is *kiiinnnd of* the opposite of factorial, in that you *add* all positive integers below instead. So, `5? = 5+4+3+2+1`. Look out though, it's called other things too. Formula: `n? = n×(n+1)÷2`
 
 
 ### The actual formulas:
@@ -25,11 +30,11 @@ this uses `cocoa`, if anybody cares.
 
 
 
-  - If `x` **cannot repeat**: `x!/(x-y)!`
+  - If `x` **cannot repeat**: `x!÷(x-y)!`
 
 
-
-  - Say `x` is a combination itself - multi factor combination: C(x,y) * C(z,y) * C(w,y) - and so on for each value under `x`
+#### Plot twist:
+  - Say `x` is a combination itself - "multi factor" "nested" combinations! In the case of `z` & `w`, we calculate `C(x,y) × C(z,y) × C(w,y)` - and so on for each "sub-value" within `x`.
     - See `z` & `w` above - We're now calculating a combination of combinations: Let's arrange 5 squares - thats `x`. As well as combination of `x`, each of `x` - those squares - could also be rotated up to 4 times - `z`! And maybe the squares can't repeat but the same rotation can appear multiple times...\
 So `x` in itself could be a combination! MAYBE EVEN A COMBINATION OF COMBINATIONS!!
 
@@ -39,7 +44,7 @@ So `x` in itself could be a combination! MAYBE EVEN A COMBINATION OF COMBINATION
 
 **if you actually want to get a good understanding of this, go read the functions section of the script. lots of good stuff there.**
 
-i hope you understand what I mean
+i hope you understand what I mean.\
 see the `about` panel for info: Menu bar > swift-frontend > About Script
 
 the `Spaces` input is equivalent to `y` above
