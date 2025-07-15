@@ -11,7 +11,7 @@ this uses `cocoa`, if anybody cares.
 ## Explanation:
 (this is also written in the script)
 
-### quick variables:
+### (quick variable definition):
   - **`y`** = characters
   - **`x`** = spaces
   - **`z`, `w`**, etc. = factors of `x`; rotation, for example. A combination of combinations!
